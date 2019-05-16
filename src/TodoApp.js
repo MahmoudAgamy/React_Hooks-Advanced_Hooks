@@ -1,5 +1,22 @@
 import React, { useReducer, useContext, useEffect, useRef } from 'react';
+/*
+useReducer:
 
+const [state, dispatch] = useReducer(reducer, initialArg, init);
+Accepts a reducer of type (state, action) => newState, and 
+returns the current state paired with a dispatch method.
+useReducer is usually preferable to useState when:
+- you have complex state logic that involves multiple sub-values
+- when the next state depends on the previous one
+
+useReducer also lets you optimize performance for components that
+trigger deep updates because you can pass dispatch down instead 
+of callbacks.
+*/
+
+// The Reducer function ( appReducer )
+// reducer of type (state, action) => newState, and 
+//returns the current state paired with a dispatch method
 function appReducer(state, action) {
   switch (action.type) {
     case 'reset': {
@@ -50,7 +67,7 @@ function useEffectOnce(cb) {
 
 export default function TodosApp() {
   const [state, dispatch] = useReducer(appReducer, []);
-
+  // [state, dispatch] = useReducer(reducer, initialArg, init)
   useEffectOnce(() => {
     const raw = localStorage.getItem('data');
     dispatch({ type: 'reset', payload: raw ? JSON.parse(raw) : [] });
