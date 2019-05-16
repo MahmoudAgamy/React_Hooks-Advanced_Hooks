@@ -1,0 +1,15 @@
+.Cast {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.CastItem {
+    width: 85px;
+    height: 85px;
+    margin: 5px;
+    border: 1px solid rgb(221, 221, 221);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
